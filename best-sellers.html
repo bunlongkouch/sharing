@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Sellers - WormFood</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <!-- Website Name -->
+            <div class="website-name">
+                <h1>WormFood</h1>
+            </div>
+
+            <!-- Quick Search and Navigation -->
+            <div class="header-right">
+                <!-- Quick Search -->
+                <div class="quick-search">
+                    <div class="search-colon" id="searchColon">
+                        <span class="search-icon"><i class="fas fa-search"></i></span>
+                        <span class="search-text" id="searchText">Quick Search</span>
+                    </div>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search for books...">
+                </div>
+
+                <!-- Navigation Links -->
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="trending.html">Trending</a></li>
+                        <li><a href="best-sellers.html">Best Sellers</a></li>
+                        <li id="authNavItem">
+                            <a href="#" id="authToggle">Sign Up/Login</a>
+                            <div id="authDropdown" class="auth-dropdown">
+                                <button id="showSignup">Sign Up</button>
+                                <button id="showLogin">Log In</button>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h2 class="page-title">2025 Best Sellers</h2>
+        <div class="filter-section">
+            <label for="genre">Filter by Genre:</label>
+            <select id="genre">
+                <option value="all">All</option>
+                <option value="dystopian">Dystopian</option>
+                <option value="classic">Classic</option>
+                <option value="fantasy">Fantasy</option>
+            </select>
+            <button id="filterButton">Filter</button>
+        </div>
+        <div class="book-grid" id="bookList"></div>
+    </main>
+
+    <!-- Book Details Page (Hidden by Default) -->
+    <div id="bookDetailsPage" class="book-details-page">
+        <div class="book-details-container">
+            <!-- Close Button (X) -->
+            <div id="closeDetailsButton" class="close-button">×</div>
+            <div class="book-image">
+                <img id="detailsBookImage" src="placeholder.jpg" alt="Book Image">
+            </div>
+            <div class="book-info">
+                <h2 id="detailsBookTitle">Book Title</h2>
+                <p><strong>Author:</strong> <span id="detailsBookAuthor">Author Name</span></p>
+                <p><strong>Genre:</strong> <span id="detailsBookGenre">Book Genre</span></p>
+                <p><strong>Published Date:</strong> <span id="detailsBookPublishedDate">N/A</span></p>
+                <p><strong>Synopsis:</strong> <span id="detailsBookSynopsis">No synopsis available.</span></p>
+                <button id="favoriteButton" class="favorite-button">
+                    <i class="far fa-heart"></i> Add to Favorites
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="authForms">
+                <div id="loginForm" class="auth-form">
+                    <h2>Log In</h2>
+                    <input type="text" id="loginUsername" placeholder="Username" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button id="loginButton">Log In</button>
+                    <p class="auth-switch">Don't have an account? <a href="#" id="showSignupLink">Sign up</a></p>
+                </div>
+                <div id="signupForm" class="auth-form" style="display:none;">
+                    <h2>Sign Up</h2>
+                    <input type="text" id="signupUsername" placeholder="Username" required>
+                    <input type="password" id="signupPassword" placeholder="Password" required>
+                    <button id="signupButton">Sign Up</button>
+                    <p class="auth-switch">Already have an account? <a href="#" id="showLoginLink">Log in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" class="loading-indicator">
+        <div class="spinner"></div>
+        <p>Loading books...</p>
+    </div>
+
+    <!-- Error Display -->
+    <div id="errorDisplay" class="error-display" style="display: none;">
+        <p>Error loading content. Please try again.</p>
+        <button id="retryButton">Retry</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="script-best-sellers.js"></script>
+</body>
+</html>
